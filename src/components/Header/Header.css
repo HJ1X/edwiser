@@ -6,9 +6,10 @@
     color: white;
 }
 
-.Header h1 {
-    padding: 20px;
+.Header img {
+    padding: 8px 20px;
     margin: 0px;
+    height: 54px;
 }
 
 .Header nav {

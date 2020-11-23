@@ -1,11 +1,12 @@
 import React from 'react';
 import './Header.css';
+import logo from './edwiserlogo.webp';
 
 function Header () {
     return (
         <div className="Header">
             <div className='container'>
-                <h1>Logo</h1>
+                <img src={logo} alt="Edwiser Logo"/>
                 <nav>
                     <span>On campus</span>
                     <span>Online</span>
