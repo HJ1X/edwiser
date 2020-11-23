@@ -1,20 +1,19 @@
-.Header .container {
+.Footer .container {
     display: flex;
+    position: absolute;
+    width: 100%;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; 
     background: rgb(61, 61, 68);
     color: white;
+    bottom: 0px;
 }
 
-.Header h1 {
+.Footer span {
     padding: 20px;
-    margin: 0px;
 }
 
-.Header nav {
+.Footer p {
     display: inline;
-}
-
-.Header span {
     padding: 15px;
 }
