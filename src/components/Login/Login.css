@@ -2,4 +2,10 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    height: 775px;
+}
+
+.Login .LoginForm {
+    flex-grow: 0.4;
+    height: 600px;
 }

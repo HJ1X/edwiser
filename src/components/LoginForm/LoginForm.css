@@ -7,3 +7,17 @@
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     border-radius: 10px;
 }
+
+.LoginForm .Form {
+    width: 100%;
+    text-align: left;
+}
+
+.LoginForm p {
+    position: absolute;
+    bottom: 140px;
+}
+
+.LoginForm a {
+    text-decoration: none;
+}
