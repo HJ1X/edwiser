@@ -2,20 +2,22 @@ import React, {useState} from 'react';
 import { Link } from "react-router-dom";
 import './LoginForm.css';
 import TabNav from '../TabNav/TabNav';
-import StudentLogin from "./StudentLogin/StudentLogin";
-import MentorLogin from "./MentorLogin/MentorLogin";
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import { pillTabsStylesHook } from '@mui-treasury/styles/tabs';
 
 function LoginForm() {
     const [selected, setSelected] = useState('student');
 
     return (
         <div className="LoginForm">
-            <TabNav selected={selected} setSelected={setSelected} />
-            {selected === 'student' && <StudentLogin />}
-            {selected === 'mentor' && <MentorLogin />}
+            <TabNav setSelected={setSelected} />
+            <div className="MentorLogin">
+                <form action="" method="post">
+                    <label htmlFor="username">Username</label>
+                    <input type="text" name="username" id="username" />
+                    <label htmlFor="password">Password</label>
+                    <input type="password" name="password" id="password" />
+                    <input type="submit" value="Login" />
+                </form>
+            </div>
             <p className="create-account">Not a member yet ? <Link to="/signup">Create an account now</Link>.</p>
         </div>
     )
