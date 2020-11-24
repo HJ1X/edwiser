@@ -1,0 +1,5 @@
+.Login .Body {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}

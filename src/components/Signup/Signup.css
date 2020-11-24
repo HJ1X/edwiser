@@ -1,4 +1,8 @@
-.LoginForm {
+.Signup .Body {
+    margin: 50px 200px 0px 200px;
+}
+
+.Signup .SignupForm {
     display: flex;
     flex-direction: column;
     align-items: flex-start;

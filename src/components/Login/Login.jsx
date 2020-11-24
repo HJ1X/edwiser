@@ -1,4 +1,5 @@
 import React from 'react';
+import './Login.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import biglogo from './edwiser-big.webp';
@@ -8,7 +9,7 @@ function Login() {
     return (
         <div className="Login">
             <Header />
-            <div className="container">
+            <div className="Body">
                 <div className="image-container">
                     <img src={biglogo} alt="Edwiser"/>
                 </div>

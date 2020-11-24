@@ -11,7 +11,7 @@ function TabNav(props) {
     }
 
     return (
-        <div className="container">
+        <div className="TabNav">
             <button className={'btn ' + studentActive} onClick={ () => props.setSelected('student') }>Student</button>
             <button className={'btn ' + mentorActive} onClick={ () => props.setSelected('mentor') }>Mentor</button>
         </div>
