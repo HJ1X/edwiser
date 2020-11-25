@@ -1,13 +1,16 @@
 .Signup {
-    height: 845px;
+    height: 668px;
     background: url('./bg.jpg') center no-repeat;
     background-size: cover;
     z-index: 4;
 }
 
 .Signup .Body {
-    margin: 50px 200px 0px 200px;
+    margin: 0 200px;
+    padding-top: 61px;
+    height: 668px;
     display: flex;
+    align-content: center;
 }
 
 .Signup .SignupForm {
@@ -15,6 +18,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+    height: 500px;
     padding: 20px;
     background-color: white;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
@@ -25,5 +29,18 @@
 .Signup form {
     width: 100%;
     text-align: left;
-    height: 550px;
+}
+
+.Signup .info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Signup p {
+    position: absolute;
+    bottom: 230px;
+}
+
+.Signup a {
+    text-decoration: none;
 }

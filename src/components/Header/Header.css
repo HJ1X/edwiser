@@ -1,21 +1,26 @@
 .Header .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgb(61, 61, 68);
-    color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgb(61, 61, 68);
+  color: white;
 }
 
 .Header img {
-    padding: 8px 20px;
-    margin: 0px;
-    height: 54px;
+  padding: 8px 20px;
+  margin: 0px;
+  height: 54px;
 }
 
 .Header nav {
-    display: inline;
+  display: inline;
 }
 
 .Header span {
-    padding: 15px;
+  padding: 15px;
+}
+
+.Header a:hover {
+  cursor: pointer;
+  text-decoration: none;
 }

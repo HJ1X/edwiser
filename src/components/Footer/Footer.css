@@ -1,19 +1,51 @@
 .Footer .container {
-    display: flex;
-    position: absolute;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between; 
-    background: rgb(61, 61, 68);
-    color: white;
-    bottom: 0px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  background: rgb(46, 46, 53);
+  color: white;
 }
 
-.Footer span {
-    padding: 20px;
+.Footer img {
+  height: 100px;
+  width: 180px;
+  padding-left: 20px;
 }
 
-.Footer p {
-    display: inline;
-    padding: 15px;
+
+.Footer .content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px 0 20px;
+}
+
+.Footer a {
+    padding-right: 20px;
+}
+
+.Footer .legal p {
+    font-size: 1rem;
+
+}
+
+.Footer .copyright {
+    margin-bottom: 1rem;
+}
+
+.Footer .copyright p {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    margin: 0.5rem 0; 
+}
+
+.Footer .made {
+    align-self: flex-end;
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 0.15rem;
+    font-family: 'Montserrat';
+    color: #ffffffa4;
 }

@@ -4,18 +4,10 @@ import Home from '../Home/Home';
 import Login from '../Login/Login';
 import Signup from '../Signup/Signup';
 import { ThemeProvider, createMuiTheme } from "@material-ui/core";
-import { dark } from "@material-ui/core/styles/createPalette";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 const theme = createMuiTheme({
-    breakpoints: {
-        keys: {
-            0: "xs",
-            1: "sm",
-            2: "md",
-            3: "lg",
-            4: "xl"
-        }
-    },
     palette: {
         primary: {
             main: '#3f72af',
@@ -29,7 +21,11 @@ const theme = createMuiTheme({
         }
     },
     typography: {
-        fontFamily: []
+        fontFamily: [
+            'Ubuntu',
+            'Montserrat',
+            'Kumbh Sans'
+        ].join(',')
     }
 })
 
@@ -37,6 +33,7 @@ function App() {
     return (
         <ThemeProvider theme={theme}>
             <Router>
+                <Header />
                 <div className="App">
                     <Switch>
                         <Route path='/' exact component={Home} />
@@ -44,6 +41,7 @@ function App() {
                         <Route path='/signup' component={Signup} />
                     </Switch>
                 </div>
+                <Footer />
             </Router>
         </ThemeProvider>
     );
