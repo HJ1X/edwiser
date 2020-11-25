@@ -2,7 +2,6 @@ import React from "react";
 import './TabNav.css';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import { pillTabsStylesHook } from '@mui-treasury/styles/tabs';
 import { appleTabsStylesHook } from '@mui-treasury/styles/tabs';
 
 function TabNav(props) {

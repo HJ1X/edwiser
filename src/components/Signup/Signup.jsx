@@ -101,6 +101,7 @@ function Signup() {
                             className={classes.root}
                             variant="contained"
                             color='secondary'
+                            type="submit"
                         >
                             Create Account
                         </Button>

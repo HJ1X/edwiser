@@ -24,7 +24,8 @@ const theme = createMuiTheme({
         fontFamily: [
             'Ubuntu',
             'Montserrat',
-            'Kumbh Sans'
+            'Kumbh Sans',
+            'Cantarell'
         ].join(',')
     }
 })

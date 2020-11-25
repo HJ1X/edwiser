@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { Button, TextField, makeStyles } from "@material-ui/core";
 import './LoginForm.css';
@@ -11,10 +11,6 @@ const useStyles = makeStyles({
         borderRadius: 20
     }
 })
-
-const textFieldStyles = {
-    padding: 100
-}
 
 function LoginForm() {
     const [selected, setSelected] = useState('student');

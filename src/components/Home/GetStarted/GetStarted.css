@@ -1,0 +1,39 @@
+.GetStarted {
+    width: 100%;
+    background-color: rgb(46, 46, 53);
+    background: url('./bg.jpg') no-repeat;
+    background-size: cover;
+    margin-bottom: 200px;
+}
+
+.GetStarted .container {
+    padding: 50px 0;
+    height: 130px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.GetStarted .box {
+    margin: 0 70px;
+    padding: 30px;
+    border-radius: 30px;
+    background-color: white;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+    width: 400px;
+    text-align: left;
+}
+
+.GetStarted h3 {
+    font-size: 2.5rem;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.GetStarted h4 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    opacity: 0.8;
+}
