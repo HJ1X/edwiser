@@ -3,9 +3,12 @@
     align-items: center;
     justify-content: space-around;
     height: 775px;
+    background: url('./bg1.jpg') no-repeat;
+    background-size: cover;
 }
 
 .Login .LoginForm {
     flex-grow: 0.4;
     height: 600px;
+    background-color: white;
 }

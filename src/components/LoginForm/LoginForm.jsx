@@ -23,11 +23,12 @@ function LoginForm() {
     return (
         <div className="LoginForm">
             <TabNav setSelected={setSelected} />
+            <h1>{selected.replace(/^\w/, (c) => c.toUpperCase())} Login</h1>
             <div className="Form">
                 <form action="" method="post">
                     <TextField fullWidth={true} size="small" className={classes.root} variant="outlined" name="username" type="text" label="Username" />
                     <TextField fullWidth={true} size="small" className={classes.root} variant="outlined" name="password" type="password" label="Password" />
-                    <Button className={classes.root} variant="contained" >Login</Button>
+                    <Button className={classes.root} variant="contained" color="primary" >Login</Button>
                 </form>
             </div>
             <p className="create-account">Not a member yet? <Link to="/signup">Create an account now</Link>.</p>

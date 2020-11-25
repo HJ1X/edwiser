@@ -33,7 +33,7 @@ function Signup() {
                         <TextField InputProps={{ startAdornment: (<PhoneIcon style={{ marginRight: 10 }} />) }} fullWidth={true} size="small" className={classes.root} variant="outlined" name="mobileNo" type="tel" label="Mobile Number" />
                         <TextField fullWidth={true} size="small" className={classes.root} variant="outlined" name="password" type="password" label="Password" />
                         <TextField fullWidth={true} size="small" className={classes.root} variant="outlined" name="confirm-password" type="password" label="Confirm Password" />
-                        <Button className={classes.root} variant="contained" >Create Account</Button>
+                        <Button className={classes.root} variant="contained" color='secondary' >Create Account</Button>
                     </form>
                     <p className='login'>Already a member ? <Link to="/login">Login here</Link>.</p>
                 </div>
