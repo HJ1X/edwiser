@@ -2,10 +2,19 @@ import React from 'react';
 import './Reconnect.css';
 import { Button, makeStyles } from "@material-ui/core";
 
+const mentors = [{
+    id: 1,
+    name: 'HJ',
+    company: 'Amazon'
+}, {
+    id: 2,
+    name: 'Guddu',
+    company: 'Google'
+}]
+
 const useStyles = makeStyles(theme => ({
     list: {
         listStyle: 'none',
-
     },
     item: {
         boxShadow: '0 5px 15px rgba(0,0,0,0.25), 0 5px 10px rgba(0,0,0,0.22)',
@@ -29,18 +38,6 @@ const companyStyle = {
     fontSize: '1rem',
     margin: '10px 0'
 }
-
-const mentors = [{
-    id: 1,
-    name: 'HJ',
-    company: 'Amazon'
-},
-{
-    id: 2,
-    name: 'Guddu',
-    company: 'Google'
-}
-]
 
 function Reconnect() {
     const classes = useStyles();
