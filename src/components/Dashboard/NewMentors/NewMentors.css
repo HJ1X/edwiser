@@ -1,0 +1,35 @@
+.NewMentors {
+    margin-top: 100px;
+    padding-top: 10px;
+    padding-left: 120px;
+    padding-right: 100px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    text-align: left;
+    font-family: 'Cantarell';
+    background: url('./bg.png');
+    background-size: cover;
+    color: white
+}
+
+.NewMentors h2 {
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 3.2rem;
+    max-width: 1200px;
+    margin-bottom: 0px;
+}
+
+.NewMentors .content {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.NewMentors .info {
+    max-width: 420px;
+}
+
+.NewMentors .carousel {
+    
+}
