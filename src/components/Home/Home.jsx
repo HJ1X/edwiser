@@ -1,5 +1,5 @@
 import React from 'react';
-import Cover from './Cover/Cover';
+import CoverHome from './CoverHome/CoverHome';
 import CareerPaths from "./CareerPaths/CareerPaths";
 import MentorCompanies from "./MentorCompanies/MentorCompanies"
 import GetStarted from "./GetStarted/GetStarted";
@@ -7,7 +7,7 @@ import GetStarted from "./GetStarted/GetStarted";
 function Home() {
     return (
         <div className="Home">
-            <Cover />
+            <CoverHome />
             <CareerPaths />
             <GetStarted />
             <MentorCompanies />

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import './GetStarted.css';
 import { Button, makeStyles } from '@material-ui/core';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
@@ -8,6 +9,9 @@ const useStyles = makeStyles(theme => ({
         position: 'relative',
         top: 10,
         borderRadius: 20
+    },
+    link: {
+        textDecoration: 'none'
     }
 }))
 
@@ -20,7 +24,7 @@ function GetStarted() {
                 <div className="box">
                     <h3>Student?</h3>
                     <h4>Meet with actual professionals and learn from their experience</h4>
-                    <Button size="large" variant="contained" className={classes.button} color="secondary" endIcon={<ArrowForwardIosIcon />}>Get Started Now for free</Button>
+                    <Link className={classes.link} to='/signup'><Button size="large" variant="contained" className={classes.button} color="secondary" endIcon={<ArrowForwardIosIcon />}>Get Started Now for free</Button></Link>
                 </div>
                 <div className="box">
                     <h3>Mentor?</h3>

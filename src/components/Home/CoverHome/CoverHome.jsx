@@ -1,9 +1,9 @@
 import React from "react";
-import './Cover.css';
+import './CoverHome.css';
 
-function Cover() {
+function CoverHome() {
     return (
-        <div className="Cover">
+        <div className="CoverHome">
             <div className="text">
                 <h1>Not Sure where to go ?</h1>
                 <h3>We are here to help</h3>
@@ -12,4 +12,4 @@ function Cover() {
     )
 }
 
-export default Cover;
+export default CoverHome;

@@ -6,6 +6,7 @@ import Signup from '../Signup/Signup';
 import { ThemeProvider, createMuiTheme } from "@material-ui/core";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import Dashboard from "../Dashboard/Dashboard";
 
 const theme = createMuiTheme({
     palette: {
@@ -40,6 +41,7 @@ function App() {
                         <Route path='/' exact component={Home} />
                         <Route path='/login' component={Login} />
                         <Route path='/signup' component={Signup} />
+                        <Route path='/dashboard' component={Dashboard} />
                     </Switch>
                 </div>
                 <Footer />

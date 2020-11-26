@@ -1,0 +1,18 @@
+.CoverDash {
+    background: url('./cover-dash.png') no-repeat;
+    background-size: cover;
+    height: 600px;
+}
+
+.CoverDash .text {
+    padding-top: 1px;
+    margin: 0;
+}
+
+.CoverDash h1 {
+    font-size: 3.5rem;
+}
+
+.CoverDash h3 {
+    font-size: 2rem;
+}

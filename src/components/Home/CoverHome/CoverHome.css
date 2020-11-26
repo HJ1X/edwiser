@@ -1,19 +1,19 @@
-.Cover {
-    background: url('./cover.png') no-repeat;
+.CoverHome {
+    background: url('./cover-home.png') no-repeat;
     background-size: cover;
     height: 600px;
 }
 
-.Cover .text {
+.CoverHome .text {
     float: left;
     margin: 275px 0 0 270px;
     text-align: left;
 }
 
-.Cover h1 {
+.CoverHome h1 {
     font-size: 3.5rem;
 }
 
-.Cover h3 {
+.CoverHome h3 {
     font-size: 2rem;
 }
