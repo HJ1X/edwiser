@@ -2,7 +2,7 @@
     margin-top: 100px;
     padding-top: 10px;
     padding-left: 120px;
-    padding-right: 100px;
+    padding-right: 40px;
     padding-bottom: 30px;
     margin-bottom: 30px;
     text-align: left;
@@ -31,5 +31,26 @@
 }
 
 .NewMentors .carousel {
-    
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    width: 800px;
+}
+
+.NewMentors .carousel-in {
+    width: 100%;
+}
+
+.NewMentors .carousel .name {
+    margin-bottom: 1rem;
+}
+
+.NewMentors .carousel h5 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.NewMentors .carousel p {
+    line-height: 1.1rem;
+    margin: 0;
 }

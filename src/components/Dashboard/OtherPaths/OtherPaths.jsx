@@ -9,14 +9,16 @@ const useStyles = makeStyles(theme => ({
     list: {
         boxShadow: '0 5px 15px rgba(0,0,0,0.25), 0 5px 10px rgba(0,0,0,0.22)',
         listStyle: 'none',
-        padding: '0 20px'
+        padding: '0 20px',
     },
     item: {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
+    },
+    listItem: {
         borderBottom: '1px black solid',
-        '&:last-child': {
+        "&:last-child": {
             borderBottom: 'none'
         }
     },
@@ -41,7 +43,7 @@ function OtherPaths() {
                 {
                     paths.map(path => {
                         return (
-                            <li key={path}>
+                            <li key={path} className={classes.listItem}>
                                 <div className={classes.item}>
                                     <p className={classes.path}>{path}</p>
                                     <Fab className={classes.button} size="small" color="primary"><ArrowForwardIosIcon /></Fab>

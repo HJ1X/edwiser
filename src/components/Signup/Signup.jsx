@@ -5,6 +5,7 @@ import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import MailIcon from "@material-ui/icons/Mail";
 import MyLocationIcon from "@material-ui/icons/MyLocation";
 import PhoneIcon from "@material-ui/icons/Phone";
+import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 import './Signup.css';
 
 const useStyles = makeStyles({
@@ -24,7 +25,19 @@ function Signup() {
                 <div className="SignupForm">
                     <form action="" method="post">
                         <TextField
+                            InputProps={{ startAdornment: (<PermIdentityIcon style={{ marginRight: 10 }} />) }}
+                            required
+                            fullWidth={true}
+                            size="small"
+                            className={classes.root}
+                            variant="outlined"
+                            name="name"
+                            type="text"
+                            label="Name"
+                        />
+                        <TextField
                             InputProps={{ startAdornment: (<AccountBoxIcon style={{ marginRight: 10 }} />) }}
+                            required
                             fullWidth={true}
                             size="small"
                             className={classes.root}
@@ -37,6 +50,7 @@ function Signup() {
                             <TextField
                                 style={{ marginRight: 20 }}
                                 InputLabelProps={{ shrink: true }}
+                                required
                                 fullWidth={true}
                                 size="small"
                                 className={classes.root}
@@ -47,6 +61,7 @@ function Signup() {
                             />
                             <TextField
                                 InputProps={{ startAdornment: (<MyLocationIcon style={{ marginRight: 10 }} />) }}
+                                required
                                 fullWidth={true}
                                 size="small"
                                 className={classes.root}
@@ -58,6 +73,7 @@ function Signup() {
                         </div>
                         <TextField
                             InputProps={{ startAdornment: (<MailIcon style={{ marginRight: 10 }} />) }}
+                            required
                             fullWidth={true}
                             size="small"
                             className={classes.root}
@@ -68,6 +84,7 @@ function Signup() {
                         />
                         <TextField
                             InputProps={{ startAdornment: (<PhoneIcon style={{ marginRight: 10 }} />) }}
+                            required
                             fullWidth={true}
                             size="small"
                             className={classes.root}
@@ -79,6 +96,7 @@ function Signup() {
                         <div className="info">
                             <TextField
                                 style={{ marginRight: 20 }}
+                                required
                                 fullWidth={true}
                                 size="small"
                                 className={classes.root}
@@ -89,6 +107,7 @@ function Signup() {
                             />
                             <TextField
                                 fullWidth={true}
+                                required
                                 size="small"
                                 className={classes.root}
                                 variant="outlined"
@@ -106,7 +125,8 @@ function Signup() {
                             Create Account
                         </Button>
                     </form>
-                    <p className='login'>Already a member ? <Link to="/login">Login here</Link>.</p>
+                    <p id="mentor-signup" className='login'>Want to be a mentor? <Link to="/login">Click here</Link>.</p>
+                    <p className='login'>Already a member? <Link to="/login">Login here</Link>.</p>
                 </div>
             </div>
         </div>

@@ -37,8 +37,15 @@
 }
 
 .Signup p {
-    position: absolute;
-    bottom: 230px;
+    position: relative;
+    top: 45px;
+    display: inline;
+    margin-top: 5px;
+}
+
+.Signup #mentor-signup {
+    position: relative;
+    margin: 0;
 }
 
 .Signup a {
