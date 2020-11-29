@@ -1,0 +1,19 @@
+.CoverDashMentor {
+    background: url('./cover-dash-mentor.jpg') no-repeat;
+    background-size: cover;
+    height: 600px;
+}
+
+.CoverDashMentor .text {
+    text-align: left;
+    padding-top: 300px;
+    margin-left: 350px;
+}
+
+.CoverDashMentor h1 {
+    font-size: 3.5rem;
+}
+
+.CoverDashMentor h3 {
+    font-size: 2rem;
+}

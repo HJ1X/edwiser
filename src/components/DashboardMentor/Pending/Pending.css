@@ -1,0 +1,14 @@
+.Pending {
+    margin-top: 100px;
+    margin-left: 270px;
+    margin-right: 200px;
+    margin-bottom: 70px;
+    text-align: left;
+    font-family: 'Cantarell';
+}
+
+.Pending h2 {
+    font-weight: 100;
+    font-size: 3rem;
+    max-width: 1200px;
+}
