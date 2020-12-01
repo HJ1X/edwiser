@@ -34,22 +34,31 @@ const theme = createMuiTheme({
 })
 
 function App() {
+    const [loginID, setLoginID] = React.useState('');
     const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-    const handleLogin = (value) => {
+    const changeLoginStatus = (value) => {
         setIsLoggedIn(value);
+    }
+
+    const handleLogin = (value) => {
+        setLoginID(value);
     }
 
     return (
         <ThemeProvider theme={theme}>
             <Router>
-                <Header isLoggedIn={isLoggedIn} setIsLoggedIn={handleLogin} />
+                <Header isLoggedIn={isLoggedIn} setIsLoggedIn={changeLoginStatus} />
                 <div className="App">
                     <Switch>
                         <Route path='/' exact component={Home} />
-                        <Route path='/login' component={Login} />
-                        <Route path='/signup' component={Signup} />
-                        <Route path='/dashboard' component={Dashboard} />
-                        <Route path='/dashboard-mentor' component={DashboardMentor} />
+                        <Route path='/login' >
+                            <Login setLoginID={handleLogin} setIsLoggedIn={changeLoginStatus} />
+                        </Route>
+                        <Route path='/signup' >
+                            <Signup setLoginID={handleLogin} setIsLoggedIn={changeLoginStatus} />
+                        </Route>
+                        <Route path='/dashboard' component={isLoggedIn === "student" ? Dashboard : Login} />
+                        <Route path='/dashboard-mentor' component={isLoggedIn === "mentor" ? DashboardMentor : Login} />
                     </Switch>
                 </div>
                 <Footer />

@@ -61,7 +61,7 @@ function Header(props) {
                                 onClose={handleClose}
                             >
                                 {props.isLoggedIn && <Link style={{ textDecoration: 'none', color: 'black' }} to="/dashboard"><MenuItem onClick={handleClose}>Dashboard</MenuItem></Link>}
-                                {props.isLoggedIn && <Link style={{ textDecoration: 'none', color: 'black' }} to="/"><MenuItem onClick={handleClose}>Log Out</MenuItem></Link>}
+                                {props.isLoggedIn && <Link style={{ textDecoration: 'none', color: 'black' }} to="/"><MenuItem onClick={() => { props.setIsLoggedIn(false); handleClose(); }}>Log Out</MenuItem></Link>}
                                 {!props.isLoggedIn && <Link style={{ textDecoration: 'none', color: 'black' }} to="/login"><MenuItem onClick={handleClose}>Log In</MenuItem></Link>}
                                 {!props.isLoggedIn && <Link style={{ textDecoration: 'none', color: 'black' }} to="/signup"><MenuItem onClick={handleClose}>Create Account</MenuItem></Link>}
                             </Menu>
