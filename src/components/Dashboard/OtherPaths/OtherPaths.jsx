@@ -3,7 +3,34 @@ import './OtherPaths.css';
 import { Fab, makeStyles } from '@material-ui/core';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos'
 
-const paths = ['webdev', 'webdev', 'webdev', 'webdev', 'webdev', 'webdev', 'webdev', 'webdev', 'webdev',];
+const paths = [{
+    path: 'web-dev',
+    name: 'Web Development'
+}, {
+    path: 'web-design',
+    name: 'Web Designing'
+}, {
+    path: 'data-science',
+    name: 'Data Science'
+}, {
+    path: 'ai',
+    name: 'Artificial Intelligence'
+}, {
+    path: 'dbms',
+    name: 'Database Administrators'
+}, {
+    path: 'ns',
+    name: 'Network Securities'
+}, {
+    path: 'software-engineering',
+    name: 'Software Engineering'
+}, {
+    path: 'marketing',
+    name: 'Marketing'
+}, {
+    path: 'publicity',
+    name: 'Publicity'
+}];
 
 const useStyles = makeStyles(theme => ({
     list: {
@@ -43,9 +70,9 @@ function OtherPaths() {
                 {
                     paths.map(path => {
                         return (
-                            <li key={path} className={classes.listItem}>
+                            <li key={path.path} className={classes.listItem}>
                                 <div className={classes.item}>
-                                    <p className={classes.path}>{path}</p>
+                                    <p className={classes.path}>{path.name}</p>
                                     <Fab className={classes.button} size="small" color="primary"><ArrowForwardIosIcon /></Fab>
                                 </div>
                             </li>

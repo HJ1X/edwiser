@@ -5,6 +5,7 @@ import logo from './edwiserlogo.webp';
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import { AppBar, Toolbar, IconButton, Grid, makeStyles } from "@material-ui/core";
 import { Menu, MenuItem } from "@material-ui/core"
+import Dashboard from '../Dashboard/Dashboard';
 
 const useStyles = makeStyles((theme) => ({
     logoStyles: {
@@ -39,6 +40,16 @@ function Header(props) {
         setAnchorEl(null);
     };
 
+    const setDashboard = () => {
+        if (props.isLoggedIn === 'mentor') {
+            return '/dashboard-mentor';
+        } else if (props.isLoggedIn === 'student') {
+            return '/dashboard';
+        } else {
+            return '/login';
+        }
+    }
+
     return (
         <AppBar className={classes.appbarStyles} color='secondary' position='sticky' elevation={1}>
             <Toolbar>
@@ -49,7 +60,9 @@ function Header(props) {
                     <Grid item>
                         <Grid container direction='row' justify='space-between' alignItems='center'>
                             <Link to="/" className={classes.navbarTextStyles}>Home</Link>
-                            <Link to="/about" className={classes.navbarTextStyles}>About</Link>
+                            <Link to={setDashboard()} className={classes.navbarTextStyles}>Dashboard</Link>
+                            <Link to="/solutions" className={classes.navbarTextStyles}>Solutions</Link>
+                            <Link to="/about" className={classes.navbarTextStyles}>About Us</Link>
                             <IconButton onClick={handleClick}>
                                 <AccountCircleIcon style={{ color: 'white' }} />
                             </IconButton>

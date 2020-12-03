@@ -6,42 +6,11 @@ import { Button, Card, CardActions, CardContent, makeStyles } from '@material-ui
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextareaAutosize } from '@material-ui/core';
 import { Snackbar } from '@material-ui/core';
 import MuiAlert from '@material-ui/lab/Alert';
+import { dashboardStudent } from '../../../utils/dashboard';
 
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
-
-const newMentors = [{
-    fname: 'Himanshu',
-    lname: 'Jaroli',
-    companies: 'Amazon, TCS, IBM',
-    experience: '4 years',
-    city: 'udaipur'
-}, {
-    fname: 'Ruthvik',
-    lname: 'Gudlavalleti',
-    companies: 'Amazon, Google, IBM',
-    experience: '8 years',
-    city: 'Pune'
-}, {
-    fname: 'Moid',
-    lname: 'Kaywadla',
-    companies: 'Google, Apple, HP',
-    experience: '4 years',
-    city: 'Dahod'
-}, {
-    fname: 'Pandy',
-    lname: 'abhi',
-    companies: 'Amazon, TCS, IBM',
-    experience: '4 years',
-    city: 'udaipur'
-}, {
-    fname: 'Ankit',
-    lname: 'yoi',
-    companies: 'Amazon, TCS, IBM',
-    experience: '4 years',
-    city: 'udaipur'
-}]
 
 const responsive = {
     superLargeDesktop: {
@@ -76,10 +45,26 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
+
 function NewMentors(props) {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const [openSnackBar, setOpenSnackBar] = React.useState(false);
+    const [newMentors, setNewMentors] = React.useState([]);
+    const [currentField, setCurrentField] = React.useState('web-dev');
+
+    React.useEffect(() => {
+        const fetchData = async () => {
+            const data = await dashboardStudent.newMentors(props.id);
+            if (typeof data === 'string') {
+                console.log(data);
+            } else {
+                setNewMentors(data.mentors);
+                setCurrentField(data.field);
+            }
+        }
+        fetchData();
+    }, []);
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -107,7 +92,7 @@ function NewMentors(props) {
                     <div className="heading">
                         <h2>Still stuck?</h2>
                     </div>
-                    <h3>Checkout some other mentors from {'Web Development'}</h3>
+                    <h3>Checkout some other mentors from {currentField}</h3>
                     <p>Its okay if to not Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque asperiores eaque fugiat illo animi fugit officiis beatae doloremque minima soluta.</p>
                 </div>
                 <div className="carousel">

@@ -5,12 +5,12 @@ import Reconnect from './Reconnect/Reconnect';
 import NewMentors from './NewMentors/NewMentors';
 import OtherPaths from './OtherPaths/OtherPaths';
 
-function Dashboard() {
+function Dashboard(props) {
     return (
         <div className="Dashboard">
             <CoverDash />
-            <Reconnect />
-            <NewMentors />
+            <Reconnect id={props.loginID} />
+            <NewMentors id={props.loginID} />
             <OtherPaths />
         </div>
     )

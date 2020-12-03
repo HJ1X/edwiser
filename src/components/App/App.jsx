@@ -57,7 +57,9 @@ function App() {
                         <Route path='/signup' >
                             <Signup setLoginID={handleLogin} setIsLoggedIn={changeLoginStatus} />
                         </Route>
-                        <Route path='/dashboard' component={isLoggedIn === "student" ? Dashboard : Login} />
+                        <Route path='/dashboard' >
+                            {isLoggedIn === "student" ? <Dashboard loginID={loginID} /> : <Login setLoginID={handleLogin} setIsLoggedIn={changeLoginStatus} />}
+                        </Route>
                         <Route path='/dashboard-mentor' component={isLoggedIn === "mentor" ? DashboardMentor : Login} />
                     </Switch>
                 </div>
