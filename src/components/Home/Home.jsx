@@ -5,6 +5,12 @@ import MentorCompanies from "./MentorCompanies/MentorCompanies"
 import GetStarted from "./GetStarted/GetStarted";
 
 function Home() {
+    React.useLayoutEffect(() => {
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        }
+    }, []);
+
     return (
         <div className="Home">
             <CoverHome />

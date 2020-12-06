@@ -5,7 +5,6 @@ import logo from './edwiserlogo.webp';
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import { AppBar, Toolbar, IconButton, Grid, makeStyles } from "@material-ui/core";
 import { Menu, MenuItem } from "@material-ui/core"
-import Dashboard from '../Dashboard/Dashboard';
 
 const useStyles = makeStyles((theme) => ({
     logoStyles: {
@@ -17,13 +16,16 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: 'rgb(61, 61, 68)'
     },
     navbarTextStyles: {
-        paddingRight: 20,
+        marginRight: 20,
         color: 'white',
         textDecoration: 'none',
+        paddingBottom: 2,
+        borderBottom: '1px rgb(61, 61, 68) solid',
+        transition: 'all .2s ease-in',
         '&:hover': {
-            cursor: 'pointer',
             textDecoration: 'none',
-            fontWeight: 600
+            cursor: 'pointer',
+            borderColor: 'white',
         }
     }
 }))
@@ -55,7 +57,7 @@ function Header(props) {
             <Toolbar>
                 <Grid container direction='row' justify='space-between' alignItems='center'>
                     <Grid item>
-                        <img className={classes.logoStyles} src={logo} alt='Edwiser Logo' />
+                        <Link to="/"><img className={classes.logoStyles} src={logo} alt='Edwiser Logo' /></Link>
                     </Grid>
                     <Grid item>
                         <Grid container direction='row' justify='space-between' alignItems='center'>

@@ -4,7 +4,7 @@ import { Button, TextField, makeStyles, IconButton, Collapse } from "@material-u
 import Alert from '@material-ui/lab/Alert';
 import './LoginForm.css';
 import TabNav from '../TabNav/TabNav';
-import { login } from '../../utils/form';
+import { loginMentor, loginStudent } from '../../utils/form';
 import CloseIcon from '@material-ui/icons/Close';
 
 const useStyles = makeStyles({
@@ -33,14 +33,22 @@ function LoginForm(props) {
 
     const handleSubmit = async event => {
         event.preventDefault();
-        ({ id, msg } = await login.submitForm(formValues));
-        console.log(id, msg);
+        if (selected === 'student') {
+            ({ id, msg } = await loginStudent.submitForm(formValues));
+        } else {
+            ({ id, msg } = await loginMentor.submitForm(formValues));
+        }
         setOpen(false);
         setOpen(true);
         if (id) {
             props.setLoginID(id);
-            props.setIsLoggedIn('student');
-            history.push('/dashboard');
+            if (selected === 'student') {
+                props.setIsLoggedIn('student');
+                history.push('/dashboard');
+            } else {
+                props.setIsLoggedIn('mentor');
+                history.push('/dashboard-mentor');
+            }
         }
     }
 

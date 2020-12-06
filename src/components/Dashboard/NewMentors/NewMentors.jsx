@@ -52,6 +52,10 @@ function NewMentors(props) {
     const [openSnackBar, setOpenSnackBar] = React.useState(false);
     const [newMentors, setNewMentors] = React.useState([]);
     const [currentField, setCurrentField] = React.useState('web-dev');
+    const [selectedMentor, setSelectedMentor] = React.useState('');
+    const [description, setDescription] = React.useState('');
+    const [status, setStatus] = React.useState('');
+    const [msg, setMsg] = React.useState('');
 
     React.useEffect(() => {
         const fetchData = async () => {
@@ -66,18 +70,22 @@ function NewMentors(props) {
         fetchData();
     }, []);
 
-    const handleClickOpen = () => {
+    const handleSubmit = async () => {
+        const data = await dashboardStudent.addRequest(props.id, selectedMentor, description);
+        setStatus(data.status);
+        setMsg(data.msg);
+        setDescription('');
+    }
+
+    const handleDescription = (event) => setDescription(event.target.value);
+
+
+    const handleClickOpen = (mentorID) => {
+        setSelectedMentor(mentorID);
         setOpen(true);
     };
-
-    const handleClose = () => {
-        setOpen(false);
-    };
-
-    const handleClickOpenSnackBar = () => {
-        setOpenSnackBar(true);
-    };
-
+    const handleClose = () => setOpen(false);
+    const handleClickOpenSnackBar = () => setOpenSnackBar(true);
     const handleCloseSnackBar = (event, reason) => {
         if (reason === 'clickaway') {
             return;
@@ -131,7 +139,7 @@ function NewMentors(props) {
                                             <p>{mentor.city}</p>
                                         </CardContent>
                                         <CardActions className={classes.CardAction}>
-                                            <Button className={classes.button} variant="contained" color="primary" onClick={handleClickOpen}>Connect</Button>
+                                            <Button className={classes.button} variant="contained" color="primary" onClick={() => handleClickOpen(mentor._id)}>Connect</Button>
                                         </CardActions>
                                     </Card>
                                 )
@@ -145,17 +153,29 @@ function NewMentors(props) {
                                 Write a brief message describing you and your approach to the career. Also Write
                                 your expectations from the mentor to help them better guide you.
                             </DialogContentText>
-                            <TextareaAutosize style={{ width: '100%', borderRadius: '5px', padding: 10, boxSizing: 'border-box' }} aria-label="description" rowsMin={8} placeholder="Write your message here..." />
+                            <TextareaAutosize
+                                style={{
+                                    width: '100%',
+                                    borderRadius: '5px',
+                                    padding: 10,
+                                    boxSizing: 'border-box'
+                                }}
+                                aria-label="description"
+                                rowsMin={8}
+                                placeholder="Write your message here..."
+                                value={description}
+                                onChange={handleDescription}
+                            />
                         </DialogContent>
                         <DialogActions>
-                            <Button style={{ margin: '0 15px 10px 0' }} variant="contained" onClick={() => { handleClose(); handleClickOpenSnackBar(); }} color="primary">
+                            <Button style={{ margin: '0 15px 10px 0' }} variant="contained" onClick={() => { handleSubmit(); handleClose(); handleClickOpenSnackBar(); }} color="primary">
                                 Submit
                             </Button>
                         </DialogActions>
                     </Dialog>
                     <Snackbar open={openSnackBar} autoHideDuration={6000} onClose={handleCloseSnackBar}>
-                        <Alert onClose={handleCloseSnackBar} severity="success">
-                            Request Sent
+                        <Alert onClose={handleCloseSnackBar} severity={status}>
+                            {msg}
                         </Alert>
                     </Snackbar>
                 </div>

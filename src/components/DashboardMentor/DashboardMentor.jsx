@@ -3,11 +3,11 @@ import './DashboardMentor.css';
 import CoverDashMentor from './CoverDashMentor/CoverDashMentor';
 import Pending from './Pending/Pending';
 
-function DashboardMentor() {
+function DashboardMentor(props) {
     return (
         <div className="DashboardMentor">
             <CoverDashMentor />
-            <Pending />
+            <Pending id={props.loginID} />
         </div>
     )
 }

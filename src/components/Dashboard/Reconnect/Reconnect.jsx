@@ -42,6 +42,10 @@ function Reconnect(props) {
     const [open, setOpen] = React.useState(false);
     const [openSnackBar, setOpenSnackBar] = React.useState(false);
     const [mentors, setMentors] = React.useState();
+    const [selectedMentor, setSelectedMentor] = React.useState('');
+    const [description, setDescription] = React.useState('');
+    const [status, setStatus] = React.useState('');
+    const [msg, setMsg] = React.useState('');
 
     React.useEffect(() => {
         const fetchData = async () => {
@@ -51,24 +55,29 @@ function Reconnect(props) {
         fetchData();
     }, []);
 
-    const handleClickOpen = () => {
+    const handleSubmit = async () => {
+        const data = await dashboardStudent.addRequest(props.id, selectedMentor, description);
+        setStatus(data.status);
+        setMsg(data.msg);
+        setDescription('');
+    }
+
+    const handleDescription = (event) => setDescription(event.target.value);
+
+
+    const handleClickOpen = (mentorID) => {
+        setSelectedMentor(mentorID);
         setOpen(true);
     };
-
-    const handleClose = () => {
-        setOpen(false);
-    };
-
-    const handleClickOpenSnackBar = () => {
-        setOpenSnackBar(true);
-    };
-
+    const handleClose = () => setOpen(false);
+    const handleClickOpenSnackBar = () => setOpenSnackBar(true);
     const handleCloseSnackBar = (event, reason) => {
         if (reason === 'clickaway') {
             return;
         }
         setOpenSnackBar(false);
     };
+
 
     const renderMentors = () => {
         if (Array.isArray(mentors)) {
@@ -77,14 +86,13 @@ function Reconnect(props) {
                     {
                         mentors.map(mentor => {
                             return (
-                                <li key={mentor.id}>
-                                    {console.log(mentor)}
+                                <li key={mentor._id}>
                                     <div className={classes.item}>
                                         <div className={classes.info}>
                                             <h5 style={nameStyle}>{mentor.fname} {mentor.lname}</h5>
                                             <p style={companyStyle}>{mentor.currentCompany}</p>
                                         </div>
-                                        <Button variant="contained" color='primary' className={classes.button} onClick={handleClickOpen}>Connect</Button>
+                                        <Button variant="contained" color='primary' className={classes.button} onClick={() => handleClickOpen(mentor._id)}>Connect</Button>
                                     </div>
                                 </li>
                             )
@@ -97,7 +105,6 @@ function Reconnect(props) {
                 <ul className={classes.list}>
                     <li key={props.id}>
                         <div className={classes.item}>
-                            {console.log(mentors)}
                             <h4>{mentors}</h4>
                         </div>
                     </li>
@@ -119,17 +126,29 @@ function Reconnect(props) {
                         Write a brief message describing your need for recounselling. Also Write
                         your expectations from the mentor to help them better guide you.
                     </DialogContentText>
-                    <TextareaAutosize style={{ width: '100%', borderRadius: '5px', padding: 10, boxSizing: 'border-box' }} aria-label="description" rowsMin={8} placeholder="Write your message here..." />
+                    <TextareaAutosize
+                        style={{
+                            width: '100%',
+                            borderRadius: '5px',
+                            padding: 10,
+                            boxSizing: 'border-box'
+                        }}
+                        aria-label="description"
+                        rowsMin={8}
+                        placeholder="Write your message here..."
+                        value={description}
+                        onChange={handleDescription}
+                    />
                 </DialogContent>
                 <DialogActions>
-                    <Button style={{ margin: '0 15px 10px 0' }} variant="contained" onClick={() => { handleClose(); handleClickOpenSnackBar(); }} color="primary">
+                    <Button style={{ margin: '0 15px 10px 0' }} variant="contained" onClick={() => { handleSubmit(); handleClose(); handleClickOpenSnackBar(); }} color="primary">
                         Submit
                     </Button>
                 </DialogActions>
             </Dialog>
             <Snackbar open={openSnackBar} autoHideDuration={6000} onClose={handleCloseSnackBar}>
-                <Alert onClose={handleCloseSnackBar} severity="success">
-                    Request Sent
+                <Alert onClose={handleCloseSnackBar} severity={status}>
+                    {msg}
                 </Alert>
             </Snackbar>
         </div>

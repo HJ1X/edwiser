@@ -9,7 +9,7 @@ import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import './Signup.css';
-import { signup } from "../../utils/form";
+import { signupStudent } from "../../utils/form";
 
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -42,7 +42,7 @@ function Signup(props) {
 
     const handleSubmit = async event => {
         event.preventDefault();
-        ({ id, msg } = await signup.submitForm(formValues));
+        ({ id, msg } = await signupStudent.submitForm(formValues));
         setOpen(true);
         if (id) {
             props.setLoginID(id);
