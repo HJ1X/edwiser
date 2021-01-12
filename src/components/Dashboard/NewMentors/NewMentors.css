@@ -39,6 +39,10 @@
 
 .NewMentors .carousel-in {
     width: 100%;
+}
+
+.NewMentors .carousel-in2 {
+    width: 100%;
     justify-content: flex-end;
 }
 

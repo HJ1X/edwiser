@@ -1,0 +1,44 @@
+.ErrorPage {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 666px;
+}
+
+.ErrorPage .image-container{
+    align-self: flex-start;
+    margin-right: 15rem;
+}
+
+.ErrorPage .text {
+    text-align: left;
+    margin-right: 15rem;
+}
+
+.ErrorPage h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.ErrorPage h2 {
+    font-weight: 100;
+    font-size: 3rem;
+    font-family: 'Cantarell';
+    margin: 1rem 0;
+}
+
+.ErrorPage p {
+    font-size: 1rem;
+    font-family: 'Montserrat'
+}
+
+.ErrorPage h5 {
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.ErrorPage .button {
+    margin-right: 15px;
+    text-decoration: none;
+}

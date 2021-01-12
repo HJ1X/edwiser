@@ -105,7 +105,7 @@ function NewMentors(props) {
                 </div>
                 <div className="carousel">
                     <Carousel
-                        className="carousel-in"
+                        className={newMentors.length < 3 ? "carousel-in2" : "carousel-in"}
                         arrows={true}
                         draggable={false}
                         showDots={false}
@@ -132,6 +132,7 @@ function NewMentors(props) {
                                         <CardContent className={classes.CardContent}>
                                             <div className="name">
                                                 <h5>{mentor.fname}</h5>
+                                                {console.log(mentor.fname)}
                                                 <h5>{mentor.lname}</h5>
                                             </div>
                                             <p>{mentor.companies}</p>

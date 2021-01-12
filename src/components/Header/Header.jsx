@@ -64,6 +64,7 @@ function Header(props) {
                             <Link to="/" className={classes.navbarTextStyles}>Home</Link>
                             <Link to={setDashboard()} className={classes.navbarTextStyles}>Dashboard</Link>
                             <Link to="/solutions" className={classes.navbarTextStyles}>Solutions</Link>
+                            <Link to="/contact" className={classes.navbarTextStyles}>Contact Us</Link>
                             <Link to="/about" className={classes.navbarTextStyles}>About Us</Link>
                             <IconButton onClick={handleClick}>
                                 <AccountCircleIcon style={{ color: 'white' }} />
@@ -75,10 +76,52 @@ function Header(props) {
                                 open={Boolean(anchorEl)}
                                 onClose={handleClose}
                             >
-                                {props.isLoggedIn && <Link style={{ textDecoration: 'none', color: 'black' }} to="/dashboard"><MenuItem onClick={handleClose}>Dashboard</MenuItem></Link>}
-                                {props.isLoggedIn && <Link style={{ textDecoration: 'none', color: 'black' }} to="/"><MenuItem onClick={() => { props.setIsLoggedIn(false); handleClose(); }}>Log Out</MenuItem></Link>}
-                                {!props.isLoggedIn && <Link style={{ textDecoration: 'none', color: 'black' }} to="/login"><MenuItem onClick={handleClose}>Log In</MenuItem></Link>}
-                                {!props.isLoggedIn && <Link style={{ textDecoration: 'none', color: 'black' }} to="/signup"><MenuItem onClick={handleClose}>Create Account</MenuItem></Link>}
+                                {props.isLoggedIn &&
+                                    <Link
+                                        style={{ textDecoration: 'none', color: 'black' }}
+                                        to={setDashboard()}
+                                    >
+                                        <MenuItem onClick={handleClose}>
+                                            Dashboard
+                                        </MenuItem>
+                                    </Link>
+                                }
+                                {props.isLoggedIn &&
+                                    <Link
+                                        style={{ textDecoration: 'none', color: 'black' }}
+                                        to="/"
+                                    >
+                                        <MenuItem onClick={() => {
+                                            props.setIsLoggedIn(false);
+                                            props.setLoginID('');
+                                            sessionStorage.removeItem('TOK');
+                                            sessionStorage.removeItem('WILI');
+                                            handleClose();
+                                        }}>
+                                            Log Out
+                                        </MenuItem>
+                                    </Link>
+                                }
+                                {!props.isLoggedIn &&
+                                    <Link
+                                        style={{ textDecoration: 'none', color: 'black' }}
+                                        to="/login"
+                                    >
+                                        <MenuItem onClick={handleClose}>
+                                            Log In
+                                        </MenuItem>
+                                    </Link>
+                                }
+                                {!props.isLoggedIn &&
+                                    <Link
+                                        style={{ textDecoration: 'none', color: 'black' }}
+                                        to="/signup"
+                                    >
+                                        <MenuItem onClick={handleClose}>
+                                            Create Account
+                                        </MenuItem>
+                                    </Link>
+                                }
                             </Menu>
                         </Grid>
                     </Grid>

@@ -9,6 +9,7 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Dashboard from "../Dashboard/Dashboard";
 import DashboardMentor from "../DashboardMentor/DashboardMentor";
+import ErrorPage from '../ErrorPage/ErrorPage';
 
 const theme = createMuiTheme({
     palette: {
@@ -36,33 +37,46 @@ const theme = createMuiTheme({
 function App() {
     const [loginID, setLoginID] = React.useState('');
     const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+
+    React.useEffect(() => {
+        if (loginID === '') {
+            if (sessionStorage.getItem('TOK')) {
+                setLoginID(sessionStorage.getItem('TOK'));
+                setIsLoggedIn(sessionStorage.getItem('WILI'));
+            }
+        }
+    }, [loginID])
+
     const changeLoginStatus = (value) => {
+        sessionStorage.setItem('WILI', value)
         setIsLoggedIn(value);
     }
 
     const handleLogin = (value) => {
+        sessionStorage.setItem('TOK', value);
         setLoginID(value);
     }
 
     return (
         <ThemeProvider theme={theme}>
             <Router>
-                <Header isLoggedIn={isLoggedIn} setIsLoggedIn={changeLoginStatus} />
+                <Header isLoggedIn={isLoggedIn} setIsLoggedIn={changeLoginStatus} setLoginID={handleLogin} />
                 <div className="App">
                     <Switch>
                         <Route path='/' exact component={Home} />
-                        <Route path='/login' >
+                        <Route path='/login' exact>
                             <Login setLoginID={handleLogin} setIsLoggedIn={changeLoginStatus} />
                         </Route>
-                        <Route path='/signup' >
+                        <Route path='/signup' exact>
                             <Signup setLoginID={handleLogin} setIsLoggedIn={changeLoginStatus} />
                         </Route>
-                        <Route path='/dashboard' >
+                        <Route path='/dashboard' exact>
                             {isLoggedIn === "student" ? <Dashboard loginID={loginID} /> : <Login setLoginID={handleLogin} setIsLoggedIn={changeLoginStatus} />}
                         </Route>
-                        <Route path='/dashboard-mentor' >
+                        <Route path='/dashboard-mentor' exact>
                             {isLoggedIn === "mentor" ? <DashboardMentor loginID={loginID} /> : <Login setLoginID={handleLogin} setIsLoggedIn={changeLoginStatus} />}
                         </Route>
+                        <Route component={ErrorPage} />
                     </Switch>
                 </div>
                 <Footer />

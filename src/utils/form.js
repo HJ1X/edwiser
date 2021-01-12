@@ -27,8 +27,8 @@ export const signupStudent = {
                     msg = 'Account created successfully';
                 } else if (response.status === 400) {
                     const jsonResponse = await response.json();
-                    if (jsonResponse.msg.includes('duplicate key error')) {
-                        msg = 'Username already exists. Try again.';
+                    if (jsonResponse.msg === 'duplicate key error') {
+                        msg = 'Username already exists. Try a different username.';
                     } else {
                         msg = jsonResponse.msg // 'Some error occured. Try again later.';
                     }
@@ -59,9 +59,11 @@ export const loginStudent = {
                     id = jsonResponse._id;
                     msg = "Logged in successfully";
                 } else if (jsonResponse.msg === 'no user found') {
-                    msg = 'Invalid credentials';
+                    msg = 'User does not exist';
+                } else if (jsonResponse.msg === 'incorrect password') {
+                    msg = "Incorrect Password";
                 } else {
-                    msg = 'Some error occured. Please try again later'
+                    msg = 'Some error occured. Please try again later';
                 }
             } else if (response.status === 400) {
                 const jsonResponse = await response.json();
@@ -92,7 +94,9 @@ export const loginMentor = {
                     id = jsonResponse._id;
                     msg = "Logged in successfully";
                 } else if (jsonResponse.msg === 'no user found') {
-                    msg = 'Invalid credentials';
+                    msg = 'User does not exist';
+                } else if (jsonResponse.msg === 'incorrect password') {
+                    msg = "Incorrect Password";
                 } else {
                     msg = 'Some error occured. Please try again later'
                 }
