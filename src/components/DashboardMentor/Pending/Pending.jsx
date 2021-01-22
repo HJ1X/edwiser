@@ -55,7 +55,7 @@ function Pending(props) {
             }
         }
         fetchData();
-    }, []);
+    }, [props.id]);
 
     const handleAccept = async (studentID, description) => {
         const { msgConnection, msgDeleteRequest } = await dashboardMentor.acceptRequest(studentID, props.id, description);

@@ -1,6 +1,6 @@
 async function setCurrentField(id, field) {
     try {
-        const response = await fetch('http://localhost:5000/set-current-field', {
+        const response = await fetch('https://edwiser-backend.herokuapp.com/set-current-field', {
             method: 'POST',
             body: JSON.stringify({ id, field }),
             headers: { 'Content-Type': 'application/json' }

@@ -1,7 +1,7 @@
 export const dashboardStudent = {
     async previousMentors(id) {
         try {
-            const response = await fetch('http://localhost:5000/dashboard/previous-mentors', {
+            const response = await fetch('https://edwiser-backend.herokuapp.com/dashboard/previous-mentors', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -28,7 +28,7 @@ export const dashboardStudent = {
 
     async newMentors(id) {
         try {
-            const response = await fetch('http://localhost:5000/dashboard/new-mentors', {
+            const response = await fetch('https://edwiser-backend.herokuapp.com/dashboard/new-mentors', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ export const dashboardStudent = {
 
     async addRequest(studentID, mentorID, description) {
         try {
-            const response = await fetch('http://localhost:5000/dashboard/add-request', {
+            const response = await fetch('https://edwiser-backend.herokuapp.com/dashboard/add-request', {
                 method: 'POST',
                 body: JSON.stringify({ mentorID, description }),
                 headers: {
@@ -94,7 +94,7 @@ export const dashboardStudent = {
 export const dashboardMentor = {
     async requests(id) {
         try {
-            const response = await fetch('http://localhost:5000/dashboard-mentor/requests', {
+            const response = await fetch('https://edwiser-backend.herokuapp.com/dashboard-mentor/requests', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -124,7 +124,7 @@ export const dashboardMentor = {
         try {
 
             // Response from Connection request
-            const responseConnection = await fetch('http://localhost:5000/dashboard-mentor/accept-connection', {
+            const responseConnection = await fetch('https://edwiser-backend.herokuapp.com/dashboard-mentor/accept-connection', {
                 method: 'POST',
                 body: JSON.stringify({ studentID }),
                 headers: {
@@ -144,7 +144,7 @@ export const dashboardMentor = {
             }
 
             // Response from delete request from dashboard
-            const responseDeleteRequest = await fetch('http://localhost:5000/dashboard-mentor/delete-request', {
+            const responseDeleteRequest = await fetch('https://edwiser-backend.herokuapp.com/dashboard-mentor/delete-request', {
                 method: 'POST',
                 body: JSON.stringify({ studentID, description }),
                 headers: {
@@ -173,7 +173,7 @@ export const dashboardMentor = {
     async rejectRequest(studentID, mentorID, description) {
         try {
 
-            const responseDeleteRequest = await fetch('http://localhost:5000/dashboard-mentor/delete-request', {
+            const responseDeleteRequest = await fetch('https://edwiser-backend.herokuapp.com/dashboard-mentor/delete-request', {
                 method: 'POST',
                 body: JSON.stringify({ studentID, description }),
                 headers: {

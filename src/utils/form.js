@@ -16,7 +16,7 @@ export const signupStudent = {
             msg = 'Passwords do not match';
         } else {
             try {
-                const response = await fetch('http://localhost:5000/signup', {
+                const response = await fetch('https://edwiser-backend.herokuapp.com/signup', {
                     method: 'POST',
                     body: JSON.stringify(formValues),
                     headers: { 'Content-Type': 'application/json' }
@@ -48,7 +48,7 @@ export const loginStudent = {
         let msg = '';
 
         try {
-            const response = await fetch('http://localhost:5000/login', {
+            const response = await fetch('https://edwiser-backend.herokuapp.com/login', {
                 method: 'POST',
                 body: JSON.stringify(formValues),
                 headers: { 'Content-Type': 'application/json' }
@@ -83,7 +83,7 @@ export const loginMentor = {
         let msg = '';
 
         try {
-            const response = await fetch('http://localhost:5000/login-mentor', {
+            const response = await fetch('https://edwiser-backend.herokuapp.com/login-mentor', {
                 method: 'POST',
                 body: JSON.stringify(formValues),
                 headers: { 'Content-Type': 'application/json' }

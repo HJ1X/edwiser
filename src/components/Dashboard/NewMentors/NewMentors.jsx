@@ -68,7 +68,7 @@ function NewMentors(props) {
             }
         }
         fetchData();
-    }, []);
+    }, [props.id]);
 
     const handleSubmit = async () => {
         const data = await dashboardStudent.addRequest(props.id, selectedMentor, description);
